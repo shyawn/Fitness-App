@@ -13,6 +13,12 @@ export default function RootLayout() {
           presentation: "fullScreenModal",
         }}
       />
+      <Stack.Screen
+        name="exerciseDetails"
+        options={{
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }

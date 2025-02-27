@@ -30,7 +30,7 @@ export default function Exercises() {
   };
   return (
     <ScrollView className="mt-20">
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <Image source={item.image} style={{ width: wp(100), height: hp(45) }} />
       <TouchableOpacity
         onPress={() => router.back()}
