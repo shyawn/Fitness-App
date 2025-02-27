@@ -1,4 +1,11 @@
-import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Image,
+  Linking,
+} from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -6,8 +13,11 @@ import {
 } from "react-native-responsive-screen";
 import { bodyParts } from "@/constants";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
+import { Link } from "expo-router";
 
 export default function BodyParts() {
+  const router = useRouter();
   return (
     <View className="mx-4">
       <Text
@@ -25,18 +35,22 @@ export default function BodyParts() {
         contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}
         columnWrapperStyle={{ justifyContent: "space-between" }}
         renderItem={({ item, index }) => (
-          <BodyPartCard index={index} item={item} />
+          <BodyPartCard router={router} index={index} item={item} />
         )}
       />
     </View>
   );
 }
 
-const BodyPartCard = ({ item, index }) => {
+const BodyPartCard = ({ item, router, index }) => {
   return (
     <View>
       <TouchableOpacity
         style={{ width: wp(44), height: wp(52) }}
+        onPress={
+          () => router.push({ pathname: "/exercises", params: item })
+          // router.push("/exercises")
+        }
         className="flex justify-end p-4 mb-4 overflow-hidden"
       >
         <Image
