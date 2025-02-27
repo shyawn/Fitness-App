@@ -8,6 +8,7 @@ import {
 } from "react-native-responsive-screen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AnimatedCarousel from "@/components/AnimatedCarousel";
+import BodyParts from "@/components/BodyParts";
 
 export default function Home() {
   return (
@@ -43,8 +44,12 @@ export default function Home() {
         </View>
       </View>
 
-      <View>
-        <AnimatedCarousel />
+      {/* <View>
+      </View> */}
+      <AnimatedCarousel />
+
+      <View className="flex-1">
+        <BodyParts />
       </View>
     </SafeAreaView>
   );
