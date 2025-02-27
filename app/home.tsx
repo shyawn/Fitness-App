@@ -7,9 +7,9 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import ImageSlider from "@/components/imageSlider";
+import AnimatedCarousel from "@/components/AnimatedCarousel";
 
-export default function home() {
+export default function Home() {
   return (
     <SafeAreaView className="flex-1 bg-white flex space-y-5" edges={["top"]}>
       <StatusBar style="dark" />
@@ -44,7 +44,7 @@ export default function home() {
       </View>
 
       <View>
-        <ImageSlider />
+        <AnimatedCarousel />
       </View>
     </SafeAreaView>
   );
