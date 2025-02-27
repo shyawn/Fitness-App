@@ -11,6 +11,10 @@ import {
 } from "react-native";
 import type { AnimatedProps } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 interface Props extends AnimatedProps<ViewProps> {
   style?: StyleProp<ImageStyle>;
@@ -36,7 +40,11 @@ export const SlideItem: React.FC<Props> = (props) => {
   return (
     <Animated.View testID={testID} style={{ flex: 1 }} {...animatedViewProps}>
       <Animated.Image
-        style={[style, styles.container, rounded && { borderRadius: 15 }]}
+        style={[
+          style,
+          styles.container,
+          rounded && { width: wp(100) - 10, height: hp(30), borderRadius: 30 },
+        ]}
         source={source}
         resizeMode="cover"
       />
@@ -51,8 +59,8 @@ export const SlideItem: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
+    // width: "100%",
+    // height: "100%",
   },
   overlay: {
     position: "absolute",
