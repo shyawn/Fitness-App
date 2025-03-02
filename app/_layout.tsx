@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Stack } from "expo-router/stack";
 
 export default function RootLayout() {
   return (
@@ -7,18 +7,7 @@ export default function RootLayout() {
         headerShown: false,
       }}
     >
-      <Stack.Screen
-        name="exercises"
-        options={{
-          presentation: "fullScreenModal",
-        }}
-      />
-      <Stack.Screen
-        name="exerciseDetails"
-        options={{
-          presentation: "modal",
-        }}
-      />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 }

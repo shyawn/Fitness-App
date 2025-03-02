@@ -31,7 +31,7 @@ export default function Home() {
         </View>
         <View className="flex justify-center items-center space-y-3">
           <Image
-            source={require("../assets/images/avatar.png")}
+            source={require("../../assets/images/avatar.png")}
             style={{ height: hp(6), width: hp(6) }}
             className="rounded-full"
           />
@@ -44,11 +44,12 @@ export default function Home() {
         </View>
       </View>
 
-      {/* <View>
-      </View> */}
       <AnimatedCarousel />
 
-      <View className="flex-1">
+      <View
+        style={{ marginTop: hp(32), marginBottom: hp(12) }}
+        className="flex"
+      >
         <BodyParts />
       </View>
     </SafeAreaView>
