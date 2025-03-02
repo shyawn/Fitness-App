@@ -17,10 +17,10 @@ function AnimatedCarousel() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Carousel
         ref={ref}
-        autoPlay={false}
+        autoPlay={true}
         autoPlayInterval={3000}
         data={sliderImages}
-        height={200}
+        height={210}
         loop={true}
         pagingEnabled={true}
         snapEnabled={true}
