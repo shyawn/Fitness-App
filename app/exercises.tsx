@@ -34,7 +34,7 @@ export default function Exercises() {
       <Image source={item.image} style={{ width: wp(100), height: hp(45) }} />
       <TouchableOpacity
         onPress={() => router.back()}
-        className="bg-rose-500 mx-4 absolute flex justify-center items-center pr-1 rounded-full"
+        className="bg-rose-500 mx-4 absolute top-[-30px] flex justify-center items-center pr-1 rounded-full"
         style={{ height: hp(5.5), width: hp(5.5), marginTop: hp(7) }}
       >
         <Ionicons name="caret-back-outline" size={hp(4)} color="white" />
