@@ -35,12 +35,12 @@ export default function Home() {
             style={{ height: hp(6), width: hp(6) }}
             className="rounded-full"
           />
-          <View
+          {/* <View
             className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300"
             style={{ height: hp(5.5), width: hp(5.5) }}
           >
             <Ionicons name="notifications" size={hp(3)} color="gray" />
-          </View>
+          </View> */}
         </View>
       </View>
 
