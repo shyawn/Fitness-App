@@ -12,7 +12,7 @@ const workoutSlice = createSlice({
       state.push(action.payload);
     },
     setWorkoutOrder: (state, action: PayloadAction<Workout[]>) => {
-      state = action.payload;
+      return action.payload;
     },
   },
 });
