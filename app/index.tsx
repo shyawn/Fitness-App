@@ -7,9 +7,10 @@ import {
 } from "react-native-responsive-screen";
 import { LinearGradient } from "expo-linear-gradient";
 import Animated, { FadeIn, FadeInDown, FadeOut } from "react-native-reanimated";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View className="flex-1 flex justify-end">
       <Image
@@ -44,16 +45,15 @@ export default function Index() {
         <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
             style={{ height: hp(7), width: wp(80) }}
+            onPress={() => router.push("/home")}
             className="bg-rose-500 flex items-center justify-center mx-auto rounded-full border-[2px] border-neutral-200"
           >
-            <Link href="/home">
-              <Text
-                style={{ fontSize: hp(3) }}
-                className="text-white font-bold tracking-widest"
-              >
-                Get Started
-              </Text>
-            </Link>
+            <Text
+              style={{ fontSize: hp(3) }}
+              className="text-white font-bold tracking-widest"
+            >
+              Get Started
+            </Text>
           </TouchableOpacity>
         </Animated.View>
       </LinearGradient>
