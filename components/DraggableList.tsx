@@ -33,7 +33,11 @@ export default function DraggableList() {
         className="w-80 p-3 border-[1px] border-[#A9A9A9] rounded-lg flex flex-row justify-between items-center"
       >
         <View className="flex">
-          <Text className="font-semibold text-[15px]">{item?.name}</Text>
+          <Text className="font-semibold text-[15px]">
+            {item?.name.length > 20
+              ? item.name.slice(0, 20) + "..."
+              : item.name}
+          </Text>
           <Text className="text-[13px] text-[#636363]">
             {item?.sets} x {item?.weight} {item.weight ? "kg" : "sets"}
           </Text>

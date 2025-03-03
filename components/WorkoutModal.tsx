@@ -9,8 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { dummyExercises } from "@/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { useDispatch } from "react-redux";
 import { addWorkout } from "@/store/workoutPlan/workoutSlice";
 import {
   widthPercentageToDP as wp,
