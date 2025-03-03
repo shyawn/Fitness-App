@@ -43,7 +43,7 @@ export default function Exercises() {
       <View className="mx-4 space-y-3 mt-4">
         <Text
           style={{ fontSize: hp(3) }}
-          className="font-semibold text-neutral-700"
+          className="font-semibold text-neutral-700 capitalize"
         >
           {item.name} exercises
         </Text>

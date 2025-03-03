@@ -52,10 +52,7 @@ const BodyPartCard = ({ item, router, index }) => {
     >
       <TouchableOpacity
         style={{ width: wp(44), height: wp(52) }}
-        onPress={
-          () => router.push({ pathname: "/exercises", params: item })
-          // router.push("/exercises")
-        }
+        onPress={() => router.push({ pathname: "/exercises", params: item })}
         className="flex justify-end p-4 mb-4 overflow-hidden"
       >
         <Image
@@ -73,7 +70,7 @@ const BodyPartCard = ({ item, router, index }) => {
         />
         <Text
           style={{ fontSize: hp(2.3) }}
-          className="text-white font-semibold text-center tracking-wide"
+          className="text-white font-semibold text-center tracking-wide capitalize"
         >
           {item?.name}
         </Text>
