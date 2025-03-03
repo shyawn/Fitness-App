@@ -16,6 +16,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useDispatch, useSelector } from "react-redux";
 import { addWorkout, setWorkoutOrder } from "@/store/workoutPlan/workoutSlice";
+import { ScrollView } from "react-native-virtualized-view";
 
 export default function MyPlan() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -38,13 +39,6 @@ export default function MyPlan() {
     setWorkout({ id: "", name: "", sets: "", weight: "" });
     toggleModal();
   };
-  // const deleteWorkout = (name) => {
-  //   setWorkoutList(workoutList.filter((item) => item.name !== name));
-  // };
-
-  // useEffect(() => {
-  //   console.log("useEffect Updated workoutList:", workoutList);
-  // }, [workoutList]);
 
   return (
     <View style={styles.container}>
@@ -180,7 +174,7 @@ export default function MyPlan() {
       )}
 
       {workoutList.length > 0 && (
-        <View>
+        <ScrollView style={{ paddingVertical: hp(15) }}>
           <DraggableList
             data={workoutList}
             onReordered={(updatedData) => {
@@ -188,7 +182,7 @@ export default function MyPlan() {
               dispatch(setWorkoutOrder(updatedData));
             }}
           />
-        </View>
+        </ScrollView>
       )}
     </View>
   );
