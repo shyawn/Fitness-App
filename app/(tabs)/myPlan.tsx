@@ -10,7 +10,6 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useDispatch, useSelector } from "react-redux";
 import { setWorkoutOrder } from "@/store/workoutPlan/workoutSlice";
-import { ScrollView } from "react-native-virtualized-view";
 import { Workout } from "@/types";
 import WorkoutModal from "@/components/WorkoutModal";
 import Schedule from "@/components/Schedule";

@@ -17,25 +17,11 @@ import {
 } from "react-native-responsive-screen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ScrollPicker from "react-native-wheel-scrollview-picker";
-// import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
 
 export default function WorkoutModal({ modalVisible, setModalVisible }) {
   const [filteredList, setFilteredList] = useState(dummyExercises);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchText, setSearchText] = useState("");
-  // const [openStartDatePicker, setOpenStartDatePicker] = useState(false);
-
-  // const today = new Date();
-  // const startDate = getFormatedDate(
-  //   today.setDate(today.getDate() + 1),
-  //   "YYYY/MM/DD"
-  // );
-  // const [selectedStartDate, setSelectedStartDate] = useState("");
-  // const [startedDate, setStartedDate] = useState("12/12/2023");
-
-  // const handleChangeStartDate = (propDate) => {
-  //   setStartedDate(propDate);
-  // };
 
   const [workout, setWorkout] = useState({
     id: "",
@@ -61,9 +47,6 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
     setWorkout((prev) => ({ ...prev, name: selectedItem }));
     setShowDropdown(false);
   };
-  // const handleOnPressStartDate = () => {
-  //   setOpenStartDatePicker(!openStartDatePicker);
-  // };
 
   useEffect(() => {
     if (searchText.trim() === "") {
@@ -137,44 +120,7 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
               highlightColor="#d8d8d8"
               highlightBorderWidth={2}
             />
-            {/* <TouchableOpacity
-              className="my-1 p-2 pl-1 rounded-lg border-[1px] border-[#A9A9A9]"
-              onPress={handleOnPressStartDate}
-            >
-              <Text>{selectedStartDate}</Text>
-            </TouchableOpacity> */}
           </View>
-
-          {/* Date picker modal */}
-          {/* <Modal
-            animationType="slide"
-            transparent={true}
-            visible={openStartDatePicker}
-          >
-            <View style={styles.centeredDateView}>
-              <View style={styles.modalDateView}>
-                <DatePicker
-                  mode="calendar"
-                  minimumDate={startDate}
-                  selected={startedDate}
-                  onDateChanged={(date) => handleChangeStartDate(date)}
-                  onSelectedChange={(date) => setSelectedStartDate(date)}
-                  options={{
-                    backgroundColor: "#080516",
-                    textHeaderColor: "#469ab6",
-                    textDefaultColor: "#FFFFFF",
-                    selectedTextColor: "#FFF",
-                    mainColor: "#469ab6",
-                    textSecondaryColor: "#FFFFFF",
-                    borderColor: "rgba(122, 146, 165, 0.1)",
-                  }}
-                />
-                <TouchableOpacity onPress={handleOnPressStartDate}>
-                  <Text style={{ color: "white" }}>Close</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal> */}
 
           <View className="flex flex-row justify-around mt-1 mb-3 gap-10">
             <TextInput
@@ -247,26 +193,4 @@ const styles = StyleSheet.create({
     borderColor: "#eee",
     backgroundColor: "#fefefd",
   },
-  // centeredDateView: {
-  //   flex: 1,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // modalDateView: {
-  //   margin: 20,
-  //   backgroundColor: "#080516",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   borderRadius: 20,
-  //   padding: 35,
-  //   width: "90%",
-  //   shadowColor: "#000",
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.25,
-  //   shadowRadius: 4,
-  //   elevation: 5,
-  // },
 });

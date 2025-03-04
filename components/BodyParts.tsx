@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Image,
-  Linking,
-} from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -14,7 +7,6 @@ import {
 import { bodyParts } from "@/constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import { Link } from "expo-router";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function BodyParts() {

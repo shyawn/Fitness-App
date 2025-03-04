@@ -10,8 +10,9 @@ import Swiper from "react-native-swiper";
 
 export default function Schedule({ value, setValue }) {
   const swiper = useRef(null);
-  // const [value, setValue] = useState(new Date());
+
   const [week, setWeek] = useState(0);
+
   const weeks = useMemo(() => {
     const start = moment(start).add(week, "weeks").startOf("week");
     return [-1, 0, 1].map((adj) => {
@@ -97,7 +98,6 @@ export default function Schedule({ value, setValue }) {
           ))}
         </Swiper>
       </View>
-      {/* <View style={{ flex: 1, paddingVertical: 24, paddingHorizontal: 16 }}> */}
       <View className="pl-6">
         <Text style={styles.contentText}>{value.toDateString()}</Text>
       </View>
@@ -111,13 +111,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
   },
-  //   picker: {
-  //     // flex: 1,
-  //     // maxHeight: 74,
-  //     // paddingVertical: 12,
-  //     // flexDirection: "row",
-  //     // alignItems: "center",
-  //   },
   contentText: {
     fontSize: 17,
     fontWeight: 600,
