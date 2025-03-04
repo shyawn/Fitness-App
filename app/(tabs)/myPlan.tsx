@@ -18,6 +18,7 @@ import { StatusBar } from "expo-status-bar";
 
 export default function MyPlan() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [value, setValue] = useState(new Date());
 
   const dispatch = useDispatch();
   const workoutList = useSelector((state: RootState) => state.workout);
@@ -28,10 +29,14 @@ export default function MyPlan() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white flex space-y-5" edges={["top"]}>
+    <SafeAreaView
+      style={{ flexDirection: "row" }}
+      className="space-y-5"
+      edges={["top"]}
+    >
       <StatusBar style="auto" />
       <View style={styles.container}>
-        <Schedule />
+        <Schedule value={value} setValue={setValue} />
         {workoutList.length === 0 && (
           <Text className="font-semibold text-gray-500">
             Add your workout plan
@@ -40,7 +45,7 @@ export default function MyPlan() {
 
         <TouchableOpacity
           onPress={toggleModal}
-          className="absolute p-1 right-7 top-32 mt-2 bg-[#A9A9A9] rounded-full"
+          className="absolute p-1 right-7 top-32 bg-[#A9A9A9] rounded-full"
         >
           <Ionicons name="add" size={wp(5)} color="white" />
         </TouchableOpacity>
@@ -53,7 +58,8 @@ export default function MyPlan() {
         )}
 
         {workoutList.length > 0 && (
-          <ScrollView style={{ paddingVertical: hp(15) }}>
+          // <ScrollView nestedScrollEnabled={true}>
+          <View style={{ flexDirection: "row" }}>
             <DraggableList
               data={workoutList}
               onReordered={(updatedData: Workout[]) => {
@@ -61,7 +67,8 @@ export default function MyPlan() {
                 dispatch(setWorkoutOrder(updatedData));
               }}
             />
-          </ScrollView>
+          </View>
+          // </ScrollView>
         )}
       </View>
     </SafeAreaView>
