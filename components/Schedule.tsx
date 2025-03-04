@@ -5,7 +5,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import moment, { relativeTimeRounding } from "moment";
+import moment from "moment";
 import Swiper from "react-native-swiper";
 
 export default function Schedule({ value, setValue }) {

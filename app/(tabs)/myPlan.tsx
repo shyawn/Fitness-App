@@ -61,6 +61,7 @@ export default function MyPlan() {
           // <ScrollView nestedScrollEnabled={true}>
           <View style={{ flexDirection: "row" }}>
             <DraggableList
+              selectedDay={value.toDateString().split(" ")[0]} // To filter by selected day
               data={workoutList}
               onReordered={(updatedData: Workout[]) => {
                 // console.log("Updated order:", updatedData);
