@@ -8,9 +8,9 @@ import {
 import moment, { relativeTimeRounding } from "moment";
 import Swiper from "react-native-swiper";
 
-export default function Schedule() {
+export default function Schedule({ value, setValue }) {
   const swiper = useRef(null);
-  const [value, setValue] = useState(new Date());
+  // const [value, setValue] = useState(new Date());
   const [week, setWeek] = useState(0);
   const weeks = useMemo(() => {
     const start = moment(start).add(week, "weeks").startOf("week");
@@ -27,7 +27,7 @@ export default function Schedule() {
   return (
     <View>
       <Text className="text-left text-[26px] font-semibold text-[#1d1d1d] mb-3 pl-6">
-        Your Schedule
+        My Schedule
       </Text>
 
       <View className="max-h-[74px]">
