@@ -1,13 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// import workoutSlice from "./workoutPlan/workoutSlice";
 // import mmkvMiddleware from "./mmkvMiddleware";
 import {
-  // FLUSH,
-  // PAUSE,
   PERSIST,
   persistReducer,
   persistStore,
+  // FLUSH,
+  // PAUSE,
   // PURGE,
   // REGISTER,
   // REHYDRATE,
@@ -30,15 +29,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  // reducer: {
-  //   workout: workoutSlice,
-  // },
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         ignoredActions: [PERSIST],
+        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         // ignoredPaths: ["register"],
       },
     }),
