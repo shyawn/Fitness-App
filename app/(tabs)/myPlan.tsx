@@ -31,7 +31,7 @@ export default function MyPlan() {
   return (
     <SafeAreaView
       style={{ flexDirection: "row" }}
-      className="space-y-5"
+      className="mt-10 space-y-5"
       edges={["top"]}
     >
       <StatusBar style="auto" />
@@ -58,7 +58,6 @@ export default function MyPlan() {
         )}
 
         {workoutList.length > 0 && (
-          // <ScrollView nestedScrollEnabled={true}>
           <View style={{ flexDirection: "row" }}>
             <DraggableList
               selectedDay={value.toDateString().split(" ")[0]} // To filter by selected day
@@ -69,7 +68,6 @@ export default function MyPlan() {
               }}
             />
           </View>
-          // </ScrollView>
         )}
       </View>
     </SafeAreaView>
