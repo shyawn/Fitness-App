@@ -22,6 +22,7 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
   const [filteredList, setFilteredList] = useState(dummyExercises);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [weight, setWeight] = useState(0);
 
   const [workout, setWorkout] = useState({
     id: "",
@@ -111,7 +112,7 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                 </View>
               )}
               onValueChange={(data, selectedIndex) => {
-                console.log("Selected:", data, "Index:", selectedIndex);
+                // console.log("Selected:", data, "Index:", selectedIndex);
                 setWorkout((prev) => ({ ...prev, day: data }));
               }}
               wrapperHeight={90}
@@ -122,8 +123,9 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
             />
           </View>
 
-          <View className="flex flex-row justify-around mt-1 mb-3 gap-10">
+          <View className="flex flex-row justify-around mt-1 mb-3 gap-5">
             <TextInput
+              className="w-1/2"
               style={{
                 flex: 1,
                 borderBottomWidth: 1,
@@ -136,19 +138,28 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                 setWorkout((prev) => ({ ...prev, sets: text }))
               }
             />
-            <TextInput
-              style={{
-                flex: 1,
-                borderBottomWidth: 1,
-                borderColor: "#A9A9A9",
-              }}
-              placeholder="Weight"
-              value={workout.weight}
-              keyboardType="numeric"
-              onChangeText={(text) => {
-                setWorkout({ ...workout, weight: text });
-              }}
-            />
+            <View className="w-1/2 relative">
+              <TextInput
+                style={{
+                  flex: 1,
+                  borderBottomWidth: 1,
+                  borderColor: "#A9A9A9",
+                }}
+                placeholder="Weight"
+                value={workout.weight}
+                keyboardType="numeric"
+                onChangeText={(text) => {
+                  setWeight(text);
+                  console.log("weight", weight);
+                  setWorkout({ ...workout, weight: text });
+                }}
+              />
+              {weight !== 0 && (
+                <Text className="absolute right-0 bottom-3 font-semibold text-[#A9A9A9]">
+                  kg
+                </Text>
+              )}
+            </View>
           </View>
 
           <TouchableOpacity
