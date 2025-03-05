@@ -22,7 +22,8 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
   const [filteredList, setFilteredList] = useState(dummyExercises);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [weight, setWeight] = useState(0);
+  const [weight, setWeight] = useState("");
+  const [error, setError] = useState("");
 
   const [workout, setWorkout] = useState({
     id: "",
@@ -38,10 +39,20 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
     setModalVisible(false);
   };
   const submitWorkout = () => {
-    dispatch(addWorkout({ ...workout, id: Date.now().toString() }));
-    setWorkout({ id: "", name: "", day: "", sets: "", weight: "" });
-    toggleModal();
-    console.log("submit workout: ", workout);
+    if (
+      workout.name === "" ||
+      workout.day === "" ||
+      workout.sets === "" ||
+      workout.weight === ""
+    ) {
+      setError("Please enter required fields");
+    } else {
+      dispatch(addWorkout({ ...workout, id: Date.now().toString() }));
+      setWorkout({ id: "", name: "", day: "", sets: "", weight: "" });
+      setError("");
+      toggleModal();
+      // console.log("submit workout: ", workout);
+    }
   };
   const handleSelect = (selectedItem: string) => {
     setSearchText(selectedItem);
@@ -154,7 +165,7 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                   setWorkout({ ...workout, weight: text });
                 }}
               />
-              {weight !== 0 && (
+              {weight !== "" && (
                 <Text className="absolute right-0 bottom-3 font-semibold text-[#A9A9A9]">
                   kg
                 </Text>
@@ -168,6 +179,8 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
           >
             <Ionicons name="close" size={hp(3)} color="gray" />
           </TouchableOpacity>
+
+          {error && <Text className="text-red-500 mb-2">{error}</Text>}
 
           <TouchableOpacity
             onPress={submitWorkout}
