@@ -1,6 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import "../global.css";
+import "../../global.css";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -15,7 +15,7 @@ export default function Index() {
     <View className="flex-1 flex justify-end">
       <Image
         className="h-full w-full absolute"
-        source={require("../assets/images/welcome.png")}
+        source={require("../../assets/images/welcome.png")}
       />
       <LinearGradient
         colors={["transparent", "#18181b"]}

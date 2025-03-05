@@ -4,6 +4,7 @@ import { store } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
 import { ActivityIndicator, View } from "react-native";
+import { Slot } from "expo-router";
 
 export default function RootLayout() {
   const renderLoading = () => {
@@ -16,13 +17,7 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={renderLoading()}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+        <Slot />
       </PersistGate>
     </Provider>
   );
