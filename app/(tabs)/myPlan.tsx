@@ -38,7 +38,7 @@ export default function MyPlan() {
         <Schedule value={value} setValue={setValue} />
 
         {workoutList.length === 0 ? (
-          <Text className="font-semibold text-gray-500">
+          <Text className="font-semibold text-gray-500 top-full">
             Add your workout plan
           </Text>
         ) : (
