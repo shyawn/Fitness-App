@@ -36,27 +36,12 @@ export default function MyPlan() {
       <StatusBar style="auto" />
       <View style={styles.container}>
         <Schedule value={value} setValue={setValue} />
-        {workoutList.length === 0 && (
+
+        {workoutList.length === 0 ? (
           <Text className="font-semibold text-gray-500">
             Add your workout plan
           </Text>
-        )}
-
-        <TouchableOpacity
-          onPress={toggleModal}
-          className="absolute p-1 right-7 top-32 bg-[#A9A9A9] rounded-full"
-        >
-          <Ionicons name="add" size={wp(5)} color="white" />
-        </TouchableOpacity>
-
-        {modalVisible && (
-          <WorkoutModal
-            modalVisible={modalVisible}
-            setModalVisible={setModalVisible}
-          />
-        )}
-
-        {workoutList.length > 0 && (
+        ) : (
           <View style={{ flexDirection: "row" }}>
             <DraggableList
               selectedDay={value.toDateString().split(" ")[0]} // To filter by selected day
@@ -68,7 +53,21 @@ export default function MyPlan() {
             />
           </View>
         )}
+
+        <TouchableOpacity
+          onPress={toggleModal}
+          className="absolute p-1 right-7 top-32 bg-[#A9A9A9] rounded-full"
+        >
+          <Ionicons name="add" size={wp(5)} color="white" />
+        </TouchableOpacity>
       </View>
+
+      {modalVisible && (
+        <WorkoutModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        />
+      )}
     </SafeAreaView>
   );
 }
