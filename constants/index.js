@@ -1,9 +1,9 @@
 export const sliderImages = [
-  require("../assets/images/slide1.png"),
-  require("../assets/images/slide2.png"),
-  require("../assets/images/slide3.png"),
-  require("../assets/images/slide4.png"),
-  require("../assets/images/slide5.png"),
+  require("../assets/images/slide-one.png"),
+  require("../assets/images/slide-two.png"),
+  require("../assets/images/slide-three.png"),
+  require("../assets/images/slide-four.png"),
+  require("../assets/images/slide-five.png"),
 ];
 
 export const bodyParts = [
@@ -17,11 +17,11 @@ export const bodyParts = [
   },
   {
     name: "lower arms",
-    image: require("../assets/images/lowerArms.png"),
+    image: require("../assets/images/lower-arms.png"),
   },
   {
     name: "lower legs",
-    image: require("../assets/images/lowerLegs.png"),
+    image: require("../assets/images/lower-legs.png"),
   },
   {
     name: "chest",
@@ -37,11 +37,11 @@ export const bodyParts = [
   },
   {
     name: "upper arms",
-    image: require("../assets/images/upperArms.png"),
+    image: require("../assets/images/upper-arms.png"),
   },
   {
     name: "upper legs",
-    image: require("../assets/images/upperLegs.png"),
+    image: require("../assets/images/upper-legs.png"),
   },
   {
     name: "waist",
