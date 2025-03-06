@@ -116,7 +116,6 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                 </View>
               )}
               onValueChange={(data, selectedIndex) => {
-                // console.log("Selected:", data, "Index:", selectedIndex);
                 setWorkout((prev) => ({ ...prev, day: data }));
               }}
               wrapperHeight={90}
@@ -154,7 +153,6 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                 keyboardType="numeric"
                 onChangeText={(text) => {
                   setWeight(text);
-                  // console.log("weight", weight);
                   setWorkout({ ...workout, weight: text });
                 }}
               />

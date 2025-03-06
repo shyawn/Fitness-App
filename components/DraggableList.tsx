@@ -33,7 +33,6 @@ export default function DraggableList({
 
   function renderItem(info: DragListRenderItemInfo<Workout>) {
     const { item, onDragStart, onDragEnd } = info;
-    // console.log("item: ", item);
 
     // Only render workout with selected day
     if (item.day.includes(selectedDay)) {
@@ -79,7 +78,6 @@ export default function DraggableList({
     const reorderedList = [...workoutList]; // Make a copy of store data instead of modifying
     const [movedItem] = reorderedList.splice(fromIndex, 1);
     reorderedList.splice(toIndex, 0, movedItem); // Insert movedItem at new position to reorder
-    // console.log("new data:", newData);
     dispatch(setWorkoutOrder(reorderedList));
   }
 

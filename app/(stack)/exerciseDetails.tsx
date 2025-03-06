@@ -12,7 +12,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 export default function exerciseDetails() {
   const item = useLocalSearchParams();
   const router = useRouter();
-  //   console.log("got item", item);
+
   return (
     <View className="flex flex-1">
       <View className="shadow-md bg-neutral-200 rounded-b-[40px]">
