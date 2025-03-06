@@ -17,6 +17,7 @@ import {
 } from "react-native-responsive-screen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ScrollPicker from "react-native-wheel-scrollview-picker";
+import { week } from "@/constants";
 
 export default function WorkoutModal({ modalVisible, setModalVisible }) {
   const [filteredList, setFilteredList] = useState(dummyExercises);
@@ -32,16 +33,6 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
     sets: "",
     weight: "",
   });
-
-  const week = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
   const dispatch = useDispatch();
 

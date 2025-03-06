@@ -6,6 +6,16 @@ export const sliderImages = [
   require("../assets/images/slide-five.png"),
 ];
 
+export const week = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
 export const bodyParts = [
   {
     name: "back",
