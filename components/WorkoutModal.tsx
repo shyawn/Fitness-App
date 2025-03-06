@@ -33,6 +33,16 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
     weight: "",
   });
 
+  const week = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   const dispatch = useDispatch();
 
   const toggleModal = () => {
@@ -107,16 +117,8 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
           <View className="w-full mt-3 h-[100px]">
             <Text className="text-neutral-600">Select Date</Text>
             <ScrollPicker
-              dataSource={[
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday",
-              ]}
-              selectedIndex={1}
+              dataSource={week}
+              selectedIndex={new Date().getDay()}
               renderItem={(data, index) => (
                 <View key={index} className="items-center">
                   <Text className="">{data}</Text>
@@ -161,7 +163,7 @@ export default function WorkoutModal({ modalVisible, setModalVisible }) {
                 keyboardType="numeric"
                 onChangeText={(text) => {
                   setWeight(text);
-                  console.log("weight", weight);
+                  // console.log("weight", weight);
                   setWorkout({ ...workout, weight: text });
                 }}
               />
