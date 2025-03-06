@@ -13,7 +13,12 @@ import {
   setWorkoutOrder,
 } from "@/store/workoutPlan/workoutSlice";
 
-export default function DraggableList({ selectedDay }) {
+export default function DraggableList({
+  selectedDay,
+  editModalVisible,
+  setEditModalVisible,
+  setEditWorkout,
+}) {
   const dispatch = useDispatch<AppDispatch>();
 
   const workoutList = useSelector((state: RootState) => state.workout);
@@ -21,6 +26,10 @@ export default function DraggableList({ selectedDay }) {
   function keyExtractor(item: Workout) {
     return item.id;
   }
+  const toggleEditModal = (item: Workout) => {
+    setEditWorkout(item);
+    setEditModalVisible(!editModalVisible);
+  };
 
   function renderItem(info: DragListRenderItemInfo<Workout>) {
     const { item, onDragStart, onDragEnd } = info;
@@ -45,14 +54,22 @@ export default function DraggableList({ selectedDay }) {
               {item?.sets} x {item?.weight} {item.weight ? "kg" : "sets"}
             </Text>
           </View>
-          <TouchableOpacity
-            className="bg-rose-500 rounded-full p-[1px]"
-            onPress={() => {
-              dispatch(deleteWorkout(item));
-            }}
-          >
-            <Ionicons name="remove-outline" size={hp(3)} color="white" />
-          </TouchableOpacity>
+
+          <View className="flex flex-row gap-2">
+            {/* Opens edit modal */}
+            <TouchableOpacity onPress={() => toggleEditModal(item)}>
+              <Ionicons name="create" size={wp(6)} color="gray" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              className="bg-rose-500 rounded-full p-[1px]"
+              onPress={() => {
+                dispatch(deleteWorkout(item));
+              }}
+            >
+              <Ionicons name="remove-outline" size={hp(3)} color="white" />
+            </TouchableOpacity>
+          </View>
         </TouchableOpacity>
       );
     }

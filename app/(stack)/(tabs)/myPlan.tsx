@@ -14,9 +14,12 @@ import { Workout } from "@/types";
 import WorkoutModal from "@/components/WorkoutModal";
 import Schedule from "@/components/Schedule";
 import { StatusBar } from "expo-status-bar";
+import EditWorkoutModal from "@/components/EditWorkoutModal";
 
 export default function MyPlan() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [editModalVisible, setEditModalVisible] = useState(false);
+  const [editWorkout, setEditWorkout] = useState({});
   const [value, setValue] = useState(new Date());
 
   const dispatch = useDispatch();
@@ -24,6 +27,8 @@ export default function MyPlan() {
 
   const toggleModal = () => {
     // console.log("LENGTH:", workoutList.length);
+    // console.log("workoutlist: ", workoutList);
+    // console.log("API: ", process.env.EXPO_RAPID_API_KEY);
     setModalVisible(!modalVisible);
   };
 
@@ -46,8 +51,10 @@ export default function MyPlan() {
             <DraggableList
               selectedDay={value.toDateString().split(" ")[0]} // To filter by selected day
               data={workoutList}
+              editModalVisible={editModalVisible}
+              setEditModalVisible={setEditModalVisible}
+              setEditWorkout={setEditWorkout}
               onReordered={(updatedData: Workout[]) => {
-                // console.log("Updated order:", updatedData);
                 dispatch(setWorkoutOrder(updatedData));
               }}
             />
@@ -66,6 +73,14 @@ export default function MyPlan() {
         <WorkoutModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
+        />
+      )}
+
+      {editModalVisible && (
+        <EditWorkoutModal
+          editModalVisible={editModalVisible}
+          setEditModalVisible={setEditModalVisible}
+          editWorkout={editWorkout}
         />
       )}
     </SafeAreaView>
